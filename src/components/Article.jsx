@@ -3,6 +3,7 @@ import {useParams} from 'react-router-dom';
 import axios from 'axios';
 import Comment from './Comment';
 import handleVote from '../utils/handleVote';
+import Pagination from './Pagination';
 
 function Article() {
     const params = useParams();
@@ -11,28 +12,32 @@ function Article() {
     const [voted, setVoted] = useState(0);
     const [isLoading, setIsLoading] = useState(false);
     const [articleVotes, setArticleVotes] = useState(0);
+    const [page, setPage] = useState(1);
+    const [limit, setLimit] = useState(5);
     useEffect(() => {
         setIsLoading(true);
         axios.get(`https://news-api-9k2x.onrender.com/api/articles/${params.article_id}`)
         .then(({data: {article: requestArticle}}) => {
-            console.log(requestArticle, 'requested');
             setArticle(requestArticle);
             setArticleVotes(requestArticle.votes);
-        }).then(() => {
-            return axios.get(`https://news-api-9k2x.onrender.com/api/articles/${params.article_id}/comments`)
-        }).then(({data: {comments: requestedComments}}) => {
             setIsLoading(false);
-            console.log(requestedComments)
-            setComments(requestedComments)
         }).catch(err => {
             setIsLoading(false);
             console.log(err);
         })
     }, [])
-
+    useEffect(() => {
+        axios.get(`https://news-api-9k2x.onrender.com/api/articles/${params.article_id}/comments?p=${page}&limit=${limit}`)
+        .then(({data: {comments: requestedComments}}) => {
+            setComments(requestedComments);
+            setIsLoading(false);
+        }).catch(err => {
+            setIsLoading(false);
+            console.log(err);
+        })
+    },[page, limit])
     const articleId = article.article_id;
     const voter = 'article';
-
     return (
         <>
             <p>{isLoading ? 'Loading...': ''}</p>
@@ -57,6 +62,7 @@ function Article() {
                     )
                 })}
             </ul>
+            <Pagination perPage="comments" limit={limit} setLimit={setLimit} page={page} setPage={setPage} commentsLength={comments.length}/>
         </>
     )
 }
