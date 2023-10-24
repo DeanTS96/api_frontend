@@ -48,7 +48,7 @@ function Article() {
                 <p>{article.body}</p>
                 <p>{article.author}</p>
                 <p>{new Date(article.created_at).toLocaleDateString()}</p>
-                <p><button>{article.comment_count}</button></p>
+                <p>{article.comment_count}</p>
                 <button disabled={voted > 0} onClick={(e) => {handleVote(e, setVoted, articleId, voter, setArticleVotes)}}>^</button>
                 <button disabled={voted < 0} onClick={(e) => {handleVote(e, setVoted, articleId, voter, setArticleVotes)}}>v</button>
                 <p>{articleVotes}</p>
