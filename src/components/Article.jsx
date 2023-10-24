@@ -50,11 +50,16 @@ function Article() {
                 <p>{article.body}</p>
                 <p>{article.author}</p>
                 <p>{new Date(article.created_at).toLocaleDateString()}</p>
-                <p>{article.comment_count}</p>
+                <p>{article.comment_count} comments</p>
                 <button disabled={voted > 0} onClick={(e) => {handleVote(e, setVoted, articleId, voter, setArticleVotes)}}>^</button>
                 <button disabled={voted < 0} onClick={(e) => {handleVote(e, setVoted, articleId, voter, setArticleVotes)}}>v</button>
                 <p>{articleVotes}</p>
             </div>
+            <form>
+                <label htmlFor="add-coment">Add comment</label>
+                <input id="add-comment" name="add-comment"></input>
+                <button type="submit" placeholder="add comment">submit</button>
+            </form>
             <ul>
                 {comments.map(comment => {
                     return (
