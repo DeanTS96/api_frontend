@@ -17,12 +17,12 @@ function App() {
     <h1>NC News</h1>
     <Nav/>
     <Routes>
-      <Route path="/articles" element={<Articles/>}></Route>
+      <Route path="/" element={<Articles/>}></Route>
       <Route path="/articles/:article_id" element={<Article/>}></Route>
       <Route path="/topics" element={<Topics/>}></Route>
       <Route path="/create_article" element={<CreateArticle/>}></Route>
-      <Route path="/" element={<SignIn/>}></Route>
-      <Route path="/sign_up" element={<SignUp/>}></Route>
+      <Route path="/sign-in" element={<SignIn/>}></Route>
+      <Route path="/sign-up" element={<SignUp/>}></Route>
       <Route path="/profile" element={<Profile/>}></Route>
       <Route path="/topics/:topic" element={<Articles/>}></Route>
     </Routes>
