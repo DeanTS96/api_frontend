@@ -1,6 +1,6 @@
 
 
-function Pagination({perPage, limit, setLimit, page, setPage, commentsLength}) {
+function Pagination({perPage, limit, setLimit, page, setPage, itemsLength}) {
     return (
         <>
             <label htmlFor={`${perPage}-per-page`}>comments per page</label>
@@ -13,7 +13,7 @@ function Pagination({perPage, limit, setLimit, page, setPage, commentsLength}) {
             </select>
             <button disabled={page < 2} onClick={()=> {setPage(page => page - 1)}}>&lt;</button>
             <p>{page}</p>
-            <button disabled={commentsLength < limit} onClick={()=> {setPage(page => page + 1)}}>&gt;</button>
+            <button disabled={itemsLength < limit} onClick={()=> {setPage(page => page + 1)}}>&gt;</button>
         </>
     )
 }

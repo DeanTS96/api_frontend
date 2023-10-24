@@ -62,7 +62,7 @@ function Article() {
                     )
                 })}
             </ul>
-            <Pagination perPage="comments" limit={limit} setLimit={setLimit} page={page} setPage={setPage} commentsLength={comments.length}/>
+            <Pagination perPage="comments" limit={limit} setLimit={setLimit} page={page} setPage={setPage} itemsLength={comments.length}/>
         </>
     )
 }
