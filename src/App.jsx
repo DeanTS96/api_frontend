@@ -7,6 +7,7 @@ import Topics from './components/Topics';
 import SignIn from './components/SignIn';
 import SignUp from './components/SignUp';
 import Profile from './components/Profile';
+import Article from './components/Article';
 import {Routes, Route} from 'react-router-dom';
 
 function App() {
@@ -17,11 +18,13 @@ function App() {
     <Nav/>
     <Routes>
       <Route path="/articles" element={<Articles/>}></Route>
+      <Route path="/articles/:article_id" element={<Article/>}></Route>
       <Route path="/topics" element={<Topics/>}></Route>
       <Route path="/create_article" element={<CreateArticle/>}></Route>
       <Route path="/" element={<SignIn/>}></Route>
       <Route path="/sign_up" element={<SignUp/>}></Route>
       <Route path="/profile" element={<Profile/>}></Route>
+      <Route path="/topics/:topic" element={<Articles/>}></Route>
     </Routes>
     </>
   )
