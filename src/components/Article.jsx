@@ -10,29 +10,31 @@ function Article() {
     const [article, setArticle] = useState({});
     const [comments, setComments] = useState([]);
     const [voted, setVoted] = useState(0);
-    const [isLoading, setIsLoading] = useState(false);
+    const [loadingComments, setLoadingComments] = useState(false);
+    const [loadingArticles, setLoadingArticles] = useState(false);
     const [articleVotes, setArticleVotes] = useState(0);
     const [page, setPage] = useState(1);
     const [limit, setLimit] = useState(5);
     useEffect(() => {
-        setIsLoading(true);
+        setLoadingArticles(true);
         axios.get(`https://news-api-9k2x.onrender.com/api/articles/${params.article_id}`)
         .then(({data: {article: requestArticle}}) => {
             setArticle(requestArticle);
             setArticleVotes(requestArticle.votes);
-            setIsLoading(false);
+            setLoadingArticles(false);
         }).catch(err => {
-            setIsLoading(false);
+            setLoadingArticles(false);
             console.log(err);
         })
     }, [])
     useEffect(() => {
+        setLoadingComments(true);
         axios.get(`https://news-api-9k2x.onrender.com/api/articles/${params.article_id}/comments?p=${page}&limit=${limit}`)
         .then(({data: {comments: requestedComments}}) => {
             setComments(requestedComments);
-            setIsLoading(false);
+            setLoadingComments(false);
         }).catch(err => {
-            setIsLoading(false);
+            setLoadingComments(false);
             console.log(err);
         })
     },[page, limit])
@@ -40,7 +42,7 @@ function Article() {
     const voter = 'article';
     return (
         <>
-            <p>{isLoading ? 'Loading...': ''}</p>
+            <p>{loadingArticles || loadingComments? 'Loading...': ''}</p>
             <div>
                 <h2>{article.title}</h2>
                 <p>{article.topic}</p>
