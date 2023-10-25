@@ -9,7 +9,8 @@ function Article() {
     const params = useParams();
     const [article, setArticle] = useState({});
     const [comments, setComments] = useState([]);
-    const [voted, setVoted] = useState(0);
+    const [upVoted, setUpVoted] = useState(false);
+    const [downVoted, setDownVoted] = useState(false);
     const [loadingComments, setLoadingComments] = useState(false);
     const [loadingArticles, setLoadingArticles] = useState(false);
     const [articleVotes, setArticleVotes] = useState(0);
@@ -69,8 +70,8 @@ function Article() {
                 <p>{article.author}</p>
                 <p>{new Date(article.created_at).toLocaleDateString()}</p>
                 <p>{article.comment_count} comments</p>
-                <button disabled={voted > 0} onClick={(e) => {handleVote(e, setVoted, articleId, voter, setArticleVotes)}}>^</button>
-                <button disabled={voted < 0} onClick={(e) => {handleVote(e, setVoted, articleId, voter, setArticleVotes)}}>v</button>
+                <button onClick={(e) => {handleVote(e, upVoted, setUpVoted, downVoted, setDownVoted, articleId, voter, setArticleVotes)}}>^</button>
+                <button onClick={(e) => {handleVote(e, upVoted, setUpVoted, downVoted, setDownVoted, articleId, voter, setArticleVotes)}}>v</button>
                 <p>{articleVotes}</p>
             </div>
             {isPostingComment ? 'Loading...' : 

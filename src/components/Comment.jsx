@@ -4,7 +4,8 @@ import axios from 'axios';
 
 function Comment({comment}) {
     const [userImage, setUserImage] = useState("");
-    const [voted, setVoted] = useState(0);
+    const [upVoted, setUpVoted] = useState(false);
+    const [downVoted, setDownVoted] = useState(false);
     const [commentVotes, setCommentVotes] = useState(comment.votes);
     const [isLoading, setIsLoading] = useState(false);
     const commentId = comment.comment_id;
@@ -20,6 +21,7 @@ function Comment({comment}) {
         console.log(err)
     })
     }, [])
+    /*disabled={voted > 0}*/
     return (
         <>
             <p>{isLoading ? 'Loading...' : ''}</p>
@@ -27,8 +29,8 @@ function Comment({comment}) {
             <img src={userImage}/>
             <p>{new Date(comment.created_at).toLocaleDateString()}</p>
             <p>{comment.body}</p>
-            <button disabled={voted > 0} onClick={(e) => {handleVote(e, setVoted, commentId, voter, setCommentVotes)}}>^</button>
-            <button disabled={voted < 0} onClick={(e) => {handleVote(e, setVoted, commentId, voter, setCommentVotes)}}>v</button>
+            <button onClick={(e) => {handleVote(e, upVoted, setUpVoted, downVoted, setDownVoted, commentId, voter, setCommentVotes)}}>^</button>
+            <button onClick={(e) => {handleVote(e, upVoted, setUpVoted, downVoted, setDownVoted, commentId, voter, setCommentVotes)}}>v</button>
             <p>{commentVotes}</p>
         </>
     )
