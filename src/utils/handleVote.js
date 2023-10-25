@@ -1,6 +1,7 @@
 import axios from 'axios';
 
-function handleVote(e, upVoted, setUpVoted, downVoted, setDownVoted, idToVote, voter, setVotes) {
+function handleVote(e, upVoted, setUpVoted, downVoted, setDownVoted, idToVote, voter, setVotes, setVoteError) {
+    setVoteError('');
     if(e.target.id === "upVote") {
         let changedDownVote = false;
         if(!upVoted){
@@ -17,8 +18,7 @@ function handleVote(e, upVoted, setUpVoted, downVoted, setDownVoted, idToVote, v
                 return votes + upVoteInc
             })
             axios.patch(`https://news-api-9k2x.onrender.com/api/${voter === 'article' ? 'articles' : 'comments'}/${idToVote}`, {inc_votes: upVoteInc})
-            .then(() => {
-            }).catch(err => {
+            .catch(err => {
                 if(changedDownVote) {
                     setDownVoted(true);
                     changedDownVote = false;
@@ -27,6 +27,7 @@ function handleVote(e, upVoted, setUpVoted, downVoted, setDownVoted, idToVote, v
                 setVotes(votes => {
                     return votes - upVoteInc
                 }) 
+                setVoteError('Vote failed. Please try again later')
             })
         } else {
             setUpVoted(false)
@@ -40,6 +41,7 @@ function handleVote(e, upVoted, setUpVoted, downVoted, setDownVoted, idToVote, v
                 setVotes(votes => {
                     return votes + 1
                 }) 
+                setVoteError('Vote failed. Please try again later')
             })
         }
     } else if(e.target.id === "downVote") {
@@ -61,8 +63,7 @@ function handleVote(e, upVoted, setUpVoted, downVoted, setDownVoted, idToVote, v
                 return votes - downVoteInc
             })
             axios.patch(`https://news-api-9k2x.onrender.com/api/${voter === 'article' ? 'articles' : 'comments'}/${idToVote}`, {inc_votes: incVotes})
-            .then(() => {
-            }).catch(err => {
+            .catch(err => {
                 if(changedUpVote) {
                     setUpVoted(true);
                     changedUpVote = false;
@@ -71,6 +72,7 @@ function handleVote(e, upVoted, setUpVoted, downVoted, setDownVoted, idToVote, v
                 setVotes(votes => {
                     return votes + downVoteInc
                 })
+                setVoteError('Vote failed. Please try again later')
             })
         } else {
             setDownVoted(false)
@@ -84,6 +86,7 @@ function handleVote(e, upVoted, setUpVoted, downVoted, setDownVoted, idToVote, v
                 setVotes(votes => {
                     return votes - 1
                 })
+                setVoteError('Vote failed. Please try again later')
             })
         }
     }
