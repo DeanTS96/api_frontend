@@ -1,16 +1,10 @@
 import {useState, useEffect} from 'react';
-import handleVote from '../utils/handleVote'
 import axios from 'axios';
+import CommentVoteButtons from './CommentVoteButtons';
 
 function Comment({comment}) {
     const [userImage, setUserImage] = useState("");
-    const [upVoted, setUpVoted] = useState(false);
-    const [downVoted, setDownVoted] = useState(false);
-    const [commentVotes, setCommentVotes] = useState(comment.votes);
-    const [isLoading, setIsLoading] = useState(false);
-    const [commentVoteError, setCommentVoteError] = useState('');
-    const commentId = comment.comment_id;
-    const voter = 'comment'
+    const [isLoading, setIsLoading] = useState(true);
     useEffect(() => {
         setIsLoading(true);
         axios.get(`https://news-api-9k2x.onrender.com/api/users/${comment.author}`)
@@ -30,10 +24,7 @@ function Comment({comment}) {
             <img src={userImage} alt="user profile picture"/>
             <p>{new Date(comment.created_at).toLocaleDateString()}</p>
             <p>{comment.body}</p>
-            <button id="upVote" onClick={(e) => {handleVote(e, upVoted, setUpVoted, downVoted, setDownVoted, commentId, voter, setCommentVotes, setCommentVoteError)}}>^</button>
-            <button id="downVote" onClick={(e) => {handleVote(e, upVoted, setUpVoted, downVoted, setDownVoted, commentId, voter, setCommentVotes, setCommentVoteError)}}>v</button>
-            <p>{commentVoteError}</p>
-            <p>{commentVotes}</p>
+            <CommentVoteButtons commentId={comment.comment_id} votes={comment.votes} voter='comment'/>
         </>
     )
 }
