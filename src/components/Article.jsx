@@ -8,7 +8,7 @@ function Article() {
     const params = useParams();
     const articleId = params.article_id;
     const [article, setArticle] = useState({});
-    const [loadingArticles, setLoadingArticles] = useState(false);
+    const [loadingArticles, setLoadingArticles] = useState(true);
     const [articleVotes, setArticleVotes] = useState(0);
 
     useEffect(() => {

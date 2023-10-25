@@ -4,7 +4,7 @@ import CommentVoteButtons from './CommentVoteButtons';
 
 function Comment({comment}) {
     const [userImage, setUserImage] = useState("");
-    const [isLoading, setIsLoading] = useState(false);
+    const [isLoading, setIsLoading] = useState(true);
     useEffect(() => {
         setIsLoading(true);
         axios.get(`https://news-api-9k2x.onrender.com/api/users/${comment.author}`)
@@ -17,7 +17,6 @@ function Comment({comment}) {
     })
     }, [])
     /*disabled={voted > 0}*/
-    console.log('kkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk')
     return (
         <>
             <p>{isLoading ? 'Loading...' : ''}</p>

@@ -6,7 +6,7 @@ import PostComment from './PostComment';
 
 function Comments({articleId}) {
     const [comments, setComments] = useState([]);
-    const [loadingComments, setLoadingComments] = useState(false);
+    const [loadingComments, setLoadingComments] = useState(true);
     const [page, setPage] = useState(1);
     const [limit, setLimit] = useState(5);
     const [commentPosted, setIsCommentPosted] = useState(false);
