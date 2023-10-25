@@ -19,6 +19,7 @@ function Article() {
     const [commentInput, setCommentInput] = useState('');
     const [commentPosted, setIsCommentPosted] = useState(false);
     const [isPostingComment, setIsPostingComment] = useState(false);
+    const [articleVoteError, setArticleVoteError] = useState('');
 
     useEffect(() => {
         setLoadingArticles(true);
@@ -44,7 +45,6 @@ function Article() {
             console.log(err);
         })
     },[page, limit, commentPosted])
-    console.log('hi')
     const articleId = article.article_id;
     const voter = 'article';
     function handleSubmit(e) {
@@ -65,13 +65,14 @@ function Article() {
             <div>
                 <h2>{article.title}</h2>
                 <p>{article.topic}</p>
-                <p>{article.article_img_url}</p>
+                <img src={article.article_img_url} alt="articles image"></img>
                 <p>{article.body}</p>
                 <p>{article.author}</p>
                 <p>{new Date(article.created_at).toLocaleDateString()}</p>
                 <p>{article.comment_count} comments</p>
-                <button onClick={(e) => {handleVote(e, upVoted, setUpVoted, downVoted, setDownVoted, articleId, voter, setArticleVotes)}}>^</button>
-                <button onClick={(e) => {handleVote(e, upVoted, setUpVoted, downVoted, setDownVoted, articleId, voter, setArticleVotes)}}>v</button>
+                <button id="upVote" onClick={(e) => {handleVote(e, upVoted, setUpVoted, downVoted, setDownVoted, articleId, voter, setArticleVotes, setArticleVoteError)}}>^</button>
+                <button id="downVote" onClick={(e) => {handleVote(e, upVoted, setUpVoted, downVoted, setDownVoted, articleId, voter, setArticleVotes, setArticleVoteError)}}>v</button>
+                <p>{articleVoteError}</p>
                 <p>{articleVotes}</p>
             </div>
             {isPostingComment ? 'Loading...' : 

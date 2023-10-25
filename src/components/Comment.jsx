@@ -8,6 +8,7 @@ function Comment({comment}) {
     const [downVoted, setDownVoted] = useState(false);
     const [commentVotes, setCommentVotes] = useState(comment.votes);
     const [isLoading, setIsLoading] = useState(false);
+    const [commentVoteError, setCommentVoteError] = useState('');
     const commentId = comment.comment_id;
     const voter = 'comment'
     useEffect(() => {
@@ -26,11 +27,12 @@ function Comment({comment}) {
         <>
             <p>{isLoading ? 'Loading...' : ''}</p>
             <p>{comment.author}</p>
-            <img src={userImage}/>
+            <img src={userImage} alt="user profile picture"/>
             <p>{new Date(comment.created_at).toLocaleDateString()}</p>
             <p>{comment.body}</p>
-            <button onClick={(e) => {handleVote(e, upVoted, setUpVoted, downVoted, setDownVoted, commentId, voter, setCommentVotes)}}>^</button>
-            <button onClick={(e) => {handleVote(e, upVoted, setUpVoted, downVoted, setDownVoted, commentId, voter, setCommentVotes)}}>v</button>
+            <button id="upVote" onClick={(e) => {handleVote(e, upVoted, setUpVoted, downVoted, setDownVoted, commentId, voter, setCommentVotes, setCommentVoteError)}}>^</button>
+            <button id="downVote" onClick={(e) => {handleVote(e, upVoted, setUpVoted, downVoted, setDownVoted, commentId, voter, setCommentVotes, setCommentVoteError)}}>v</button>
+            <p>{commentVoteError}</p>
             <p>{commentVotes}</p>
         </>
     )

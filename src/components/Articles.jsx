@@ -5,7 +5,6 @@ import Pagination from './Pagination';
 
 function Articles() {
     const params = useParams();
-    console.log(params);
     const [articles, setArticles] = useState([]);
     const [isLoading , setIsLoading] = useState(false);
     const [page, setPage] = useState(1);
