@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 function handleVote(e, upVoted, setUpVoted, downVoted, setDownVoted, idToVote, voter, setVotes) {
-    if(e.target.innerText === "^") {
+    if(e.target.id === "upVote") {
         let changedDownVote = false;
         if(!upVoted){
             setUpVoted(true)
@@ -42,7 +42,7 @@ function handleVote(e, upVoted, setUpVoted, downVoted, setDownVoted, idToVote, v
                 }) 
             })
         }
-    } else if(e.target.innerText === "v") {
+    } else if(e.target.id === "downVote") {
         let changedUpVote = false;
         if(!downVoted) {
             setDownVoted(true)

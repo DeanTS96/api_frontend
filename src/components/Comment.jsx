@@ -26,11 +26,11 @@ function Comment({comment}) {
         <>
             <p>{isLoading ? 'Loading...' : ''}</p>
             <p>{comment.author}</p>
-            <img src={userImage}/>
+            <img src={userImage} alt="user profile picture"/>
             <p>{new Date(comment.created_at).toLocaleDateString()}</p>
             <p>{comment.body}</p>
-            <button onClick={(e) => {handleVote(e, upVoted, setUpVoted, downVoted, setDownVoted, commentId, voter, setCommentVotes)}}>^</button>
-            <button onClick={(e) => {handleVote(e, upVoted, setUpVoted, downVoted, setDownVoted, commentId, voter, setCommentVotes)}}>v</button>
+            <button id="upVote" onClick={(e) => {handleVote(e, upVoted, setUpVoted, downVoted, setDownVoted, commentId, voter, setCommentVotes)}}>^</button>
+            <button id="downVote" onClick={(e) => {handleVote(e, upVoted, setUpVoted, downVoted, setDownVoted, commentId, voter, setCommentVotes)}}>v</button>
             <p>{commentVotes}</p>
         </>
     )
