@@ -9,7 +9,7 @@ function Articles() {
     const [isLoading , setIsLoading] = useState(false);
     const [page, setPage] = useState(1);
     const [limit, setLimit] = useState(10);
-    //create base url
+    
     useEffect(() => {
         setIsLoading(true);
         axios.get(`https://news-api-9k2x.onrender.com/api/articles?p=${page}&limit=${limit}`, {params: {topic: params.topic}})
