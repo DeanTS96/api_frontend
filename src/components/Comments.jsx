@@ -10,8 +10,10 @@ function Comments({articleId}) {
     const [page, setPage] = useState(1);
     const [limit, setLimit] = useState(5);
     const [commentPosted, setIsCommentPosted] = useState(false);
+    const [commentDeleted, setCommentDeleted] = useState(false);
 
     useEffect(() => {
+        setCommentDeleted(false);
         setIsCommentPosted(false);
         setLoadingComments(true);
         axios.get(`https://news-api-9k2x.onrender.com/api/articles/${articleId}/comments?p=${page}&limit=${limit}`)
@@ -22,7 +24,7 @@ function Comments({articleId}) {
             setLoadingComments(false);
             console.log(err);
         })
-    },[page, limit, commentPosted])
+    },[page, limit, commentPosted, commentDeleted])
 
     return (
         <>
@@ -32,7 +34,7 @@ function Comments({articleId}) {
             {comments.map(comment => {
                 return (
                     <li key={`${comment.comment_id}`}>
-                        <Comment comment={comment} />
+                        <Comment comment={comment} setCommentDeleted={setCommentDeleted} />
                     </li>
                 )
             })}

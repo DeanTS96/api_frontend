@@ -20,7 +20,7 @@ function SignIn() {
             setUser(user)
             setUsername('');
             setPassword('');
-            navigate('/profile');
+            navigate('/');
         }).catch(err => {
             setIsLoading(false);
             setUserExists('User doesn\'t exist');
