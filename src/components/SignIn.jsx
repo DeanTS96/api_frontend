@@ -1,7 +1,7 @@
 import {useState, useContext} from 'react';
 import {useNavigate} from 'react-router-dom';
 import {UserContext} from'../App';
-import axios from 'axios';
+import {requestSignIn} from '../../api';
 
 function SignIn() {
     const [username, setUsername] = useState('');
@@ -15,7 +15,8 @@ function SignIn() {
         e.preventDefault();
         setSignInError('');
         setIsLoading(true);
-        axios.get(`https://news-api-9k2x.onrender.com/api/users/${e.target[0].value}`).then(({data:{user}}) => {
+        requestSignIn(e.target[0].value)
+        .then(({data:{user}}) => {
             setIsLoading(false);
             setUser(user)
             setUsername('');

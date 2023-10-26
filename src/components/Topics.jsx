@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { Link } from 'react-router-dom';
-import axios from 'axios';
+import { getTopics } from '../../api';
 
 function Topics() {
     const [topics, setTopics] = useState([]);
@@ -9,7 +9,8 @@ function Topics() {
     useEffect(()=> {
         setTopicsError('')
         setIsLoading(true);
-        axios.get('https://news-api-9k2x.onrender.com/api/topics').then(({data}) => {
+        getTopics()
+        .then(({data}) => {
             setIsLoading(false);
             setTopics(data);
         }).catch(err => {

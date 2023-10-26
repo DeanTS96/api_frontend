@@ -9,6 +9,8 @@ import SignUp from './components/SignUp';
 import Profile from './components/Profile';
 import Article from './components/Article';
 import {Routes, Route} from 'react-router-dom';
+import Header from './components/Header';
+import BadEndpointPage from './components/BadEndpointPage';
 
 export const UserContext = createContext(null);
 
@@ -19,7 +21,7 @@ function App() {
   return (
     <>
     <UserContext.Provider value={{user, setUser}}>
-      <h1>NC News</h1>
+      <Header />
       <Nav setCurrentURL={setCurrentURL} />
       <Routes>
         <Route path="/" element={<Articles currentURL={currentURL}/>}></Route>
@@ -30,6 +32,7 @@ function App() {
         <Route path="/sign-up" element={<SignUp />}></Route>
         <Route path="/profile" element={<Profile />}></Route>
         <Route path="/topics/:topic" element={<Articles />}></Route>
+        <Route path="/*" element={<BadEndpointPage />}></Route>
       </Routes>
     </UserContext.Provider>
     </>

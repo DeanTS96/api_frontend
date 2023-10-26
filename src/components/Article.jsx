@@ -1,8 +1,8 @@
 import {useEffect, useState} from 'react';
 import {useParams} from 'react-router-dom';
-import axios from 'axios';
 import Comments from './Comments';
 import ArticleVoteButtons from './ArticleVoteButtons';
+import {getArticleById} from '../../api';
 
 function Article() {
     const params = useParams();
@@ -15,7 +15,7 @@ function Article() {
     useEffect(() => {
         setArticleError('');
         setLoadingArticles(true);
-        axios.get(`https://news-api-9k2x.onrender.com/api/articles/${articleId}`)
+        getArticleById(articleId)
         .then(({data: {article: requestArticle}}) => {
             setArticle(requestArticle);
             setArticleVotes(requestArticle.votes);

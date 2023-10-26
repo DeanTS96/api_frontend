@@ -1,0 +1,1 @@
+///api/comments/:comment_id

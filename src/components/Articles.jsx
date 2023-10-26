@@ -1,8 +1,8 @@
 import {useParams,Link} from 'react-router-dom';
 import {useState, useEffect} from 'react';
-import axios from 'axios';
 import Pagination from './Pagination';
 import Sort from './Sort';
+import {getAllArticles} from '../../api';
 
 function Articles({currentURL}) {
     const params = useParams();
@@ -17,7 +17,7 @@ function Articles({currentURL}) {
     useEffect(() => {
         setIsLoading(true);
         setArticlesError('');
-        axios.get(`https://news-api-9k2x.onrender.com/api/articles?p=${page}&limit=${limit}&sort_by=${sortBy}&order=${order}`, {params: {topic: params.topic}})
+        getAllArticles(page, limit, sortBy, order, params)
         .then(({data}) => {
             setIsLoading(false);
             setArticles(data.articles);
