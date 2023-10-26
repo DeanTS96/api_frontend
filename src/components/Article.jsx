@@ -10,8 +10,10 @@ function Article() {
     const [article, setArticle] = useState({});
     const [loadingArticles, setLoadingArticles] = useState(true);
     const [articleVotes, setArticleVotes] = useState(0);
+    const [articleError, setArticleError] = useState('');
 
     useEffect(() => {
+        setArticleError('');
         setLoadingArticles(true);
         axios.get(`https://news-api-9k2x.onrender.com/api/articles/${articleId}`)
         .then(({data: {article: requestArticle}}) => {
@@ -19,27 +21,43 @@ function Article() {
             setArticleVotes(requestArticle.votes);
             setLoadingArticles(false);
         }).catch(err => {
+            const errorStatus = err.response.status;
+            if(errorStatus === 404){
+                setArticleError({head: 'Sorry :(', body: 'I could not find the article you\'re looking for.'})
+            } else if(errorStatus === 400) {
+                setArticleError({head: 'Article id invalid', body: 'Please check article Id is a number and try again'})
+            } else {
+                setArticleError({head:'oops', body: 'Server is currnetly down. Please try again later'})
+            }
             setLoadingArticles(false);
-            console.log(err);
         })
     }, [])
-    return (
-        <>
-            <p>{loadingArticles ? 'Loading...': ''}</p>
-            <div>
-                <h2>{article.title}</h2>
-                <p>{article.topic}</p>
-                <img src={article.article_img_url} alt="articles image"></img>
-                <p>{article.body}</p>
-                <p>{article.author}</p>
-                <p>{new Date(article.created_at).toLocaleDateString()}</p>
-                <p>{article.comment_count} comments</p>
-                <ArticleVoteButtons articleId={article.article_id} voter='article' setArticleVotes={setArticleVotes} votes={article.votes} />
-                <p>{articleVotes}</p>
-            </div>
-            <Comments articleId={articleId}/>
-        </>
-    )
+    if(articleError) {
+        return (
+            <>
+                <h2>{articleError.head}</h2>
+                <p>{articleError.body}</p>
+            </>
+        )
+    } else {
+        return (
+            <>
+                <p>{loadingArticles ? 'Loading...': ''}</p>
+                <div>
+                    <h2>{article.title}</h2>
+                    <p>{article.topic}</p>
+                    <img src={article.article_img_url} alt="articles image"></img>
+                    <p>{article.body}</p>
+                    <p>{article.author}</p>
+                    <p>{new Date(article.created_at).toLocaleDateString()}</p>
+                    <p>{article.comment_count} comments</p>
+                    <ArticleVoteButtons articleId={article.article_id} voter='article' setArticleVotes={setArticleVotes} votes={article.votes} />
+                    <p>{articleVotes}</p>
+                </div>
+                <Comments articleId={articleId}/>
+            </>
+        )
+    }
 }
 
 export default Article;
