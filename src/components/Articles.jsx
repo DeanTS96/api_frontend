@@ -4,7 +4,7 @@ import axios from 'axios';
 import Pagination from './Pagination';
 import Sort from './Sort';
 
-function Articles() {
+function Articles({currentURL}) {
     const params = useParams();
     const [articles, setArticles] = useState([]);
     const [isLoading , setIsLoading] = useState(true);
@@ -23,7 +23,7 @@ function Articles() {
             setIsLoading(false);
             console.log(err)
         })
-    },[limit, page, sortBy, order])
+    },[limit, page, sortBy, order, currentURL])
     return (
         <>
             <p>Articles {params.topic}</p>

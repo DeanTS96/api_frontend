@@ -15,13 +15,14 @@ export const UserContext = createContext(null);
 function App() {
 
   const [user, setUser] = useState({});
+  const [currentURL, setCurrentURL] = useState('');
   return (
     <>
     <UserContext.Provider value={{user, setUser}}>
       <h1>NC News</h1>
-      <Nav/>
+      <Nav setCurrentURL={setCurrentURL} />
       <Routes>
-        <Route path="/" element={<Articles />}></Route>
+        <Route path="/" element={<Articles currentURL={currentURL}/>}></Route>
         <Route path="/articles/:article_id" element={<Article />}></Route>
         <Route path="/topics" element={<Topics />}></Route>
         <Route path="/create_article" element={<CreateArticle />}></Route>
