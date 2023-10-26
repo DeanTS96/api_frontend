@@ -5,7 +5,7 @@ import {useContext} from 'react';
 import {UserContext} from '../App';
 import {getCommentAuthor} from '../../api';
 
-function Comment({comment, setCommentDeleted}) {
+function Comment({comment, setCommentDeleted, setCommentUpdated}) {
     const user = useContext(UserContext).user.username
     const [userImage, setUserImage] = useState("");
     const [isLoading, setIsLoading] = useState(true);
@@ -45,6 +45,7 @@ function Comment({comment, setCommentDeleted}) {
             </>
         )
     }
+    //{user === comment.author ? <UpdateComment commentId={comment.comment_id} setCommentUpdated={setCommentUpdated} /> : ''}
 }
 
 export default Comment;
