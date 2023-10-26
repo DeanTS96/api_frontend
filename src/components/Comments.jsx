@@ -11,11 +11,13 @@ function Comments({articleId}) {
     const [limit, setLimit] = useState(5);
     const [commentPosted, setIsCommentPosted] = useState(false);
     const [commentDeleted, setCommentDeleted] = useState(false);
+    const [commentUpdated, setCommentUpdated] = useState(false);
     const [commentsError, setCommentsError] = useState('');
 
     useEffect(() => {
         setCommentsError('')
         setCommentDeleted(false);
+        setCommentUpdated(false);
         setIsCommentPosted(false);
         setLoadingComments(true);
         getComments(articleId, page, limit)
@@ -34,7 +36,7 @@ function Comments({articleId}) {
             setLoadingComments(false);
             console.log(err);
         })
-    },[page, limit, commentPosted, commentDeleted])
+    },[page, limit, commentPosted, commentDeleted, commentUpdated])
 
     if(commentsError) {
         return (
@@ -52,7 +54,7 @@ function Comments({articleId}) {
                 {comments.map(comment => {
                     return (
                         <li key={`${comment.comment_id}`}>
-                            <Comment comment={comment} setCommentDeleted={setCommentDeleted} />
+                            <Comment comment={comment} setCommentDeleted={setCommentDeleted} setCommentUpdated={setCommentUpdated} />
                         </li>
                     )
                 })}
