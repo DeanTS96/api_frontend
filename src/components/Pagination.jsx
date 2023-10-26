@@ -1,5 +1,3 @@
-
-
 function Pagination({perPage, limit, setLimit, page, setPage, itemsLength}) {
     return (
         <>

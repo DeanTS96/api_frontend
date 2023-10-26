@@ -1,9 +1,9 @@
 import {useState, useEffect} from 'react';
-import axios from 'axios';
 import CommentVoteButtons from './CommentVoteButtons';
 import DeleteComment from './DeleteComment';
 import {useContext} from 'react';
 import {UserContext} from '../App';
+import {getCommentAuthor} from '../../api';
 
 function Comment({comment, setCommentDeleted}) {
     const user = useContext(UserContext).user.username
@@ -14,7 +14,7 @@ function Comment({comment, setCommentDeleted}) {
     useEffect(() => {
         setIsLoading(true);
         setCommentError('');
-        axios.get(`https://news-api-9k2x.onrender.com/api/users/${comment.author}`)
+        getCommentAuthor(comment.author)
         .then(({data:{user: {avatar_url}}}) => {
             setIsLoading(false);
         setUserImage(avatar_url)

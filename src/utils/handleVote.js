@@ -1,4 +1,4 @@
-import axios from 'axios';
+import {requestVote} from '../../api';
 
 function handleVote(e, upVoted, setUpVoted, downVoted, setDownVoted, idToVote, voter, setVotes, setVoteError) {
     setVoteError('');
@@ -17,7 +17,7 @@ function handleVote(e, upVoted, setUpVoted, downVoted, setDownVoted, idToVote, v
             setVotes(votes => {
                 return votes + upVoteInc
             })
-            axios.patch(`https://news-api-9k2x.onrender.com/api/${voter === 'article' ? 'articles' : 'comments'}/${idToVote}`, {inc_votes: upVoteInc})
+            requestVote(voter, idToVote, upVoteInc)
             .catch(err => {
                 if(changedDownVote) {
                     setDownVoted(true);
@@ -34,7 +34,8 @@ function handleVote(e, upVoted, setUpVoted, downVoted, setDownVoted, idToVote, v
             setVotes(votes => {
                 return votes - 1
             })
-            axios.patch(`https://news-api-9k2x.onrender.com/api/${voter === 'article' ? 'articles' : 'comments'}/${idToVote}`, {inc_votes: -1})
+            const downVoteInc = -1;
+            requestVote(voter, idToVote, downVoteInc)
             .then(() => {
             }).catch(err => {
                 setUpVoted(true)
@@ -49,20 +50,20 @@ function handleVote(e, upVoted, setUpVoted, downVoted, setDownVoted, idToVote, v
         if(!downVoted) {
             setDownVoted(true)
             let downVoteInc;
-            let incVotes;
+            let upVoteInc;
             if(upVoted) {
                 downVoteInc = 2
-                incVotes = -2
+                upVoteInc = -2
                 setUpVoted(false);
                 changedUpVote = true;
             } else {
                 downVoteInc = 1;
-                incVotes = -1
+                upVoteInc = -1
             }
             setVotes(votes => {
                 return votes - downVoteInc
             })
-            axios.patch(`https://news-api-9k2x.onrender.com/api/${voter === 'article' ? 'articles' : 'comments'}/${idToVote}`, {inc_votes: incVotes})
+            requestVote(voter, idToVote, upVoteInc)
             .catch(err => {
                 if(changedUpVote) {
                     setUpVoted(true);
@@ -79,7 +80,8 @@ function handleVote(e, upVoted, setUpVoted, downVoted, setDownVoted, idToVote, v
             setVotes(votes => {
                 return votes + 1
             })
-            axios.patch(`https://news-api-9k2x.onrender.com/api/${voter === 'article' ? 'articles' : 'comments'}/${idToVote}`, {inc_votes: +1})
+            const downVoteInc = 1;
+            requestVote(voter, idToVote, downVoteInc)
             .then(() => {
             }).catch(err => {
                 setDownVoted(true)

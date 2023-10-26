@@ -1,5 +1,5 @@
-import axios from "axios";
 import {useState} from 'react';
+import { requestDeleteComment } from "../../api";
 
 
 function DeleteComment({commentId, setCommentDeleted}) {
@@ -9,7 +9,8 @@ function DeleteComment({commentId, setCommentDeleted}) {
     function deleteComment(e) {
         setDeleteCommentError('')
         setDeletingComment(true)
-        axios.delete(`https://news-api-9k2x.onrender.com/api/comments/${commentId}`).then(()=>{
+        requestDeleteComment(commentId)
+        .then(()=>{
             setDeletingComment(false)
             setCommentDeleted(true)
         })

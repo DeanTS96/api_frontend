@@ -1,8 +1,8 @@
 import {useEffect, useState} from 'react';
 import Comment from './Comment';
 import Pagination from './Pagination';
-import axios from 'axios';
 import PostComment from './PostComment';
+import {getComments} from '../../api';
 
 function Comments({articleId}) {
     const [comments, setComments] = useState([]);
@@ -18,7 +18,7 @@ function Comments({articleId}) {
         setCommentDeleted(false);
         setIsCommentPosted(false);
         setLoadingComments(true);
-        axios.get(`https://news-api-9k2x.onrender.com/api/articles/${articleId}/comments?p=${page}&limit=${limit}`)
+        getComments(articleId, page, limit)
         .then(({data: {comments: requestedComments}}) => {
             setComments(requestedComments);
             setLoadingComments(false);

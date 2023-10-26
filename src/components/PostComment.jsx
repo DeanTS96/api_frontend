@@ -1,18 +1,19 @@
 import {useState, useContext} from 'react';
-import axios from 'axios';
 import {UserContext} from '../App';
+import {requestPostComment} from '../../api';
 
 function PostComment({articleId, setIsCommentPosted}) {
     const [commentInput, setCommentInput] = useState('');
     const [isPostingComment, setIsPostingComment] = useState(false);
     const [postCommentError, setPostCommentError] = useState('');
-    const user = useContext(UserContext)
+    const user = useContext(UserContext).user
 
     function handleSubmit(e) {
         e.preventDefault();
         setPostCommentError('')
         setIsPostingComment(true);
-        axios.post(`https://news-api-9k2x.onrender.com/api/articles/${articleId}/comments`, {body: commentInput, username: 'grumpy19'}).then(() => {
+        requestPostComment(articleId, commentInput, user.username)
+        .then(() => {
             setIsPostingComment(false);
             setCommentInput('')
             setIsCommentPosted(true);
@@ -33,7 +34,7 @@ function PostComment({articleId, setIsCommentPosted}) {
             <>
                 {isPostingComment ? 'Loading...' : 
                 <form onSubmit={handleSubmit}>
-                    <img src={user.user.avatar_url}/>
+                    <img src={user.avatar_url}/>
                     <label htmlFor="add-comment">Add comment</label>
                     <input id="add-comment" value={commentInput} onChange={(e) => {setCommentInput(e.target.value)}} name="add-comment"></input>
                     <button type="submit" placeholder="add comment">submit</button>
