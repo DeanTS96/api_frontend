@@ -2,6 +2,7 @@
   margin: 0;
   padding: 0;
   font-family: Calibri, Candara, Segoe, Segoe UI, Optima, Arial, sans-serif;
+  color: rgb(82, 3, 82);
 }
 
 body {
@@ -58,6 +59,85 @@ h1 {
   margin: 20px;
   background-color: white;
   border-radius: 20px;
+  box-shadow: 10px 10px 20px inset gray;
+}
+
+.article-list-img{
+  width: 100%;
+  height: auto;
+  border-radius: 25px;
+  margin-bottom: 10px
+}
+
+.article-list-item{
+  background-color: lightblue;
+  padding: 20px;
+  margin: 30px 10px;
+  border-radius: 25px;
+  box-shadow: 10px 10px 20px gray;
+  color: rgb(100, 4, 100);
+}
+
+.article-list-title{
+  font-weight: bold;
+  font-size: 1.2em;
+}
+
+.article-list-author{
+  font-size: 0.8em;
+}
+
+.articles-sort-item{
+  border-radius: 30px;
+  background-color: white;
+  font-size: 1.2em;
+  margin: 10px auto;
+  width: 80%;
+}
+
+.articles-sort-label{
+  line-height: 2em;
+  vertical-align: middle;
+  margin: 10px;
+}
+
+.articles-sort-select{
+  margin: 0 auto;
+  padding: 2px 20px;;
+  margin: 10px;
+  margin-left: 10px;
+  border-radius: 30px;
+  font-size: 0.8em;
+}
+
+#order{
+  margin-left: 29px;
+}
+
+.articles-sort-select-option{
+  border-radius: 20px
+}
+
+.pagination-foot{
+  display: inline-block;
+  font-size: 2em;
+}
+
+.pagination-arrow{
+  margin: 0 10px;
+  background: none;
+  border: none;
+  cursor:pointer;
+}
+
+.pagination-head{
+  font-size: 1em;
+  margin: 0 5px;
+}
+
+.pagination-dropdown{
+  border-radius: 30px;
+  padding: 3px;
 }
 
 @media only screen and (min-width: 560px) {

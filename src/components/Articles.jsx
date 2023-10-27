@@ -39,28 +39,28 @@ function Articles({currentURL}) {
         )
     } else {
         return (
-            <div className="content">
-                <p>Articles {params.topic}</p>
+            <>
                 <p>{isLoading ? 'Loading...': ''}</p>
-                <Sort sortBy={sortBy} setSortBy={setSortBy} order={order} setOrder={setOrder} />
-                <ol>
-                    {articles.map(article => {
-                        return (
-                            <Link key={`${article.article_id} ${article.title}`} to={`/articles/${article.article_id}`}>
-                                <li article_id={article.article_id}>
-                                    <p>{article.title}</p>
-                                    <p>{new Date(article.created_at).toLocaleDateString()}</p>
-                                    <p>{article.topic}</p>
-                                    <p>{article.author}</p>
-                                </li>
-                            </Link>
-                        )
-                    })}
-                </ol>
-                <Pagination perPage="articles" limit={limit} setLimit={setLimit} page={page} setPage={setPage} itemsLength={articles.length}/>
-            </div>
-            
-    
+                    <Sort sortBy={sortBy} setSortBy={setSortBy} order={order} setOrder={setOrder} />
+                <div className="content">
+                    <ol>
+                        {articles.map(article => {
+                            console.log(article);
+                            return (
+                                <Link key={`${article.article_id} ${article.title}`} to={`/articles/${article.article_id}`}>
+                                    <li className="article-list-item"article_id={article.article_id}>
+                                        <img className="article-list-img" src={article.article_img_url}/>
+                                        <p className="article-list-title">{article.title}</p>
+                                        <p>Posted on {new Date(article.created_at).toLocaleDateString()}</p>
+                                        <p className="article-list-author">By {article.author}</p>
+                                    </li>
+                                </Link>
+                            )
+                        })}
+                    </ol>
+                </div>
+                <Pagination perPage="Articles" limit={limit} setLimit={setLimit} page={page} setPage={setPage} itemsLength={articles.length}/>
+            </>
         )
     }
 }

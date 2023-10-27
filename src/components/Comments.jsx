@@ -60,7 +60,7 @@ function Comments({articleId}) {
                 })}
                 </ul>
                 }
-                <Pagination perPage="comments" limit={limit} setLimit={setLimit} page={page} setPage={setPage} itemsLength={comments.length}/>
+                <Pagination perPage="Comments" limit={limit} setLimit={setLimit} page={page} setPage={setPage} itemsLength={comments.length}/>
             </>
         )
     }
