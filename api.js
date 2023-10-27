@@ -39,6 +39,21 @@ function requestSignIn(username) {
 function getTopics() {
     return axios.get('https://news-api-9k2x.onrender.com/api/topics')
 }
+
+function requestPostArticle(username, title, topic, body, imgURL) {
+    return axios.get('https://news-api-9k2x.onrender.com/api/topics').then(({data: topics}) => {
+        console.log(topics)
+        const topicExists = topics.find(singleTopic => singleTopic.slug === topic);
+        if(!topicExists) {
+            return axios.post('https://news-api-9k2x.onrender.com/api/topics', {slug: topic, description: ''})
+        }
+        return 
+    })
+    .then(() => {
+        return axios.post(`https://news-api-9k2x.onrender.com/api/articles`, {author: username, title: title, topic: topic, body: body, article_img_url: imgURL})
+    })
+}
+
 export {
     getArticleById, 
     getAllArticles, 
@@ -49,5 +64,6 @@ export {
     requestPostComment, 
     requestSignIn, 
     getTopics, 
-    requestUpdateComment
+    requestUpdateComment,
+    requestPostArticle
 };
