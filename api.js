@@ -54,6 +54,10 @@ function requestPostArticle(username, title, topic, body, imgURL) {
     })
 }
 
+function requestDeleteArticle(articleId) {
+    return axios.delete(`https://news-api-9k2x.onrender.com/api/articles/${articleId}`)
+}
+
 export {
     getArticleById, 
     getAllArticles, 
@@ -65,5 +69,6 @@ export {
     requestSignIn, 
     getTopics, 
     requestUpdateComment,
-    requestPostArticle
+    requestPostArticle,
+    requestDeleteArticle
 };
