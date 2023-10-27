@@ -39,7 +39,7 @@ function Articles({currentURL}) {
         )
     } else {
         return (
-            <>
+            <div className="content">
                 <p>Articles {params.topic}</p>
                 <p>{isLoading ? 'Loading...': ''}</p>
                 <Sort sortBy={sortBy} setSortBy={setSortBy} order={order} setOrder={setOrder} />
@@ -58,7 +58,7 @@ function Articles({currentURL}) {
                     })}
                 </ol>
                 <Pagination perPage="articles" limit={limit} setLimit={setLimit} page={page} setPage={setPage} itemsLength={articles.length}/>
-            </>
+            </div>
             
     
         )
