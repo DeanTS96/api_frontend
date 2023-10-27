@@ -58,6 +58,10 @@ function requestDeleteArticle(articleId) {
     return axios.delete(`https://news-api-9k2x.onrender.com/api/articles/${articleId}`)
 }
 
+function requestUpdateArticle(articleId) {
+    return axios.patch(`https://news-api-9k2x.onrender.com/api/articles/${articleId}`, {})
+}
+
 export {
     getArticleById, 
     getAllArticles, 
@@ -70,5 +74,6 @@ export {
     getTopics, 
     requestUpdateComment,
     requestPostArticle,
-    requestDeleteArticle
+    requestDeleteArticle,
+    requestUpdateArticle
 };
