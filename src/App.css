@@ -1,8 +1,8 @@
 #root {
   max-width: 1280px;
   margin: 0 auto;
-  padding: 2rem;
   text-align: center;
+  font-size: 1.2em
 }
 
 ul {
@@ -14,4 +14,17 @@ ul {
 li{
   display: inline-block;
   margin: 10px
+}
+
+h1 {
+  display: inline-block;
+}
+
+.profile-picture{
+  position: absolute;
+  height: auto;
+  width: 12%;
+  max-width: 50px;
+  right: 20px;
+  top: 20px;
 }
