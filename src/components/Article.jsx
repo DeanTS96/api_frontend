@@ -1,8 +1,10 @@
-import {useEffect, useState} from 'react';
+import {useEffect, useState, useContext} from 'react';
 import {useParams} from 'react-router-dom';
 import Comments from './Comments';
 import ArticleVoteButtons from './ArticleVoteButtons';
 import {getArticleById} from '../../api';
+import DeleteArticle from './DeleteArticle';
+import {UserContext} from '../App';
 
 function Article() {
     const params = useParams();
@@ -11,6 +13,7 @@ function Article() {
     const [loadingArticles, setLoadingArticles] = useState(true);
     const [articleVotes, setArticleVotes] = useState(0);
     const [articleError, setArticleError] = useState('');
+    const user = useContext(UserContext).user.username;
 
     useEffect(() => {
         setArticleError('');
@@ -53,6 +56,7 @@ function Article() {
                     <p>{article.comment_count} comments</p>
                     <ArticleVoteButtons articleId={article.article_id} voter='article' setArticleVotes={setArticleVotes} votes={article.votes} />
                     <p>{articleVotes}</p>
+                    {user === article.author ? <DeleteArticle articleId={article.article_id}/> : ''}
                 </div>
                 <Comments articleId={articleId}/>
             </>
