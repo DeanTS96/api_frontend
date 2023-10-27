@@ -1,8 +1,24 @@
-# React + Vite
+Live site: https://ds-nc-news.netlify.app/
+Backend api: https://github.com/DeanTS96/api_project
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A news app, using CRUD (create, read, update, delete) operations on my backend api (see above), allowing users to view and post articles on various topics, as well as vote and comment on different articles.
 
-Currently, two official plugins are available:
+Node: v21.0.0
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+1. To run locally first clone the repo down 
+
+        git clone <this repo link>
+
+2. run npm install to get all dependencies
+        
+        npm install
+
+3. make sure you have the correct version ov node
+
+    note:  If your version is less that the required version stated above, you'll need to go and update node or download it if you don't have it installed.
+        
+            node --version
+
+4. Now run npm run dev and you should see a link appear in the terminal which will open up the project in your browser on that loccalhost port
+
+        npm run dev
