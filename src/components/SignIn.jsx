@@ -37,17 +37,19 @@ function SignIn() {
         return (
             <>
                 <p>{isLoading ? 'Loading...' : ''}</p>
-                <form onSubmit={(e)=>{handleSubmit(e)}}>
-                    <label htmlFor="username">Username: </label>
-                    <input id="username" name="username" value={username} onChange={(e)=>{setUsername(e.target.value)}}/>
-                    <label htmlFor="password">Password: </label>
-                    <input id="password" name="password" value={password} onChange={(e)=>{setPassword(e.target.value)}}/>
-                    <button type="submit">Sign In</button>
-                </form>
-                <h2>{signInError.head}</h2>
-                <p>{signInError.body}</p>
+                <div className="content">
+                    <form className="content-item" onSubmit={(e)=>{handleSubmit(e)}}>
+                        <label className="form-label" htmlFor="username">Username </label>
+                        <input className="form-item" id="username" name="username" value={username} onChange={(e)=>{setUsername(e.target.value)}}/>
+                        <label className="form-label" htmlFor="password">Password </label>
+                        <input className="form-item" id="password" name="password" value={password} onChange={(e)=>{setPassword(e.target.value)}}/>
+                        <button className="button-submit" type="submit">Sign In</button>
+                    </form>
+                    <h2>{signInError.head}</h2>
+                    <p>{signInError.body}</p>
+                </div>
                 <p>Not with us?</p>
-                <button onClick={(e)=>{navigate('/sign-up')}}>Create Account</button>
+                <button className="button-sign-up" onClick={(e)=>{navigate('/sign-up')}}>Create Account</button>
             </>
         )
 }

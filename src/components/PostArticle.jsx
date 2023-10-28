@@ -41,13 +41,13 @@ function PostArticle() {
         <div className="content">
             {isPostingArticle ? 'Loading...' : 
             <form className="content-item" onSubmit={postArticle}>
-                <label className="post-article-label" htmlFor="title">Title</label>
+                <label className="form-label" htmlFor="title">Title</label>
                 <input className="form-item" id="title" name="title" value={titleInput} onChange={(e) => {setTitleInput(e.target.value)}} required/>
-                <label className="post-article-label" htmlFor="topic">Topic</label>
+                <label className="form-label" htmlFor="topic">Topic</label>
                 <input className="form-item" id="topic" name="topic" value={topicInput} onChange={(e) => {setTopicInput(e.target.value)}} required/>
-                <label className="post-article-label" htmlFor="body">Article</label>
+                <label className="form-label" htmlFor="body">Article</label>
                 <textarea className="form-item post-article-body" id="body" name="body" value={bodyInput} onChange={(e) => {setBodyInput(e.target.value)}} autosize required/>
-                <label className="post-article-label" htmlFor="img_url">Image url</label>
+                <label className="form-label" htmlFor="img_url">Image url</label>
                 <input className="form-item" id="img_url" name="img_url" value={imgURLInput} onChange={(e) => {setImgURLInput(e.target.value)}}/>
                 <button className="button-submit" type="submit">Submit</button>
             </form>
