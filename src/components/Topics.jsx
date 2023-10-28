@@ -29,12 +29,14 @@ function Topics() {
     return (
         <>
             <p>{isLoading ? 'Loading...': ''}</p>
-            <ul>
+            <ul className="content">
                 {topics.map(topic => {
                 return (
                 <Link key={topic.slug} to={`${topic.slug}`} >
-                    <li>
-                        {topic.slug}
+                    <li className="topic-item">
+                        <div className="topic-item-text-container">
+                            <p className="topic-item-text" >{topic.slug}</p>
+                        </div>
                     </li>
                 </Link>
                 )})}

@@ -152,15 +152,20 @@ h1 {
   width: 60%;
   border-radius: 25px;
   font-size: 0.8em;
+  border: 2px solid rgb(100, 4, 100);
 }
 
 .post-article-body{
-  height: 200px
+  height: 200px;
 }
 
 .post-article-label{
   font-size: 1em;
   display: block;
+}
+
+.form-item:focus{
+  outline: 2px solid white;
 }
 
 .button-submit{
@@ -173,6 +178,34 @@ h1 {
   margin: 10px;
   display: block;
   margin: 0 auto;
+}
+
+.topic-item{
+  vertical-align: top;
+  background-color: lightblue;
+  height: 125px;
+  width: 125px;
+  padding: 20px;
+  margin: 30px 10px;
+  border-radius: 25px;
+  box-shadow: 10px 10px 20px gray;
+  color: rgb(100, 4, 100);
+  border: 2px solid rgb(100, 4, 100);
+}
+
+.topic-item-text-container{
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  flex-direction: column;
+}
+
+.topic-item-text{
+  overflow-wrap: break-word;
+  font-size: 1.5em;
+  font-weight: bold;
 }
 
 @media only screen and (min-width: 560px) {
