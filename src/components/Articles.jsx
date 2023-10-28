@@ -48,7 +48,7 @@ function Articles({currentURL}) {
                             console.log(article);
                             return (
                                 <Link key={`${article.article_id} ${article.title}`} to={`/articles/${article.article_id}`}>
-                                    <li className="article-list-item"article_id={article.article_id}>
+                                    <li className="content-item" article_id={article.article_id}>
                                         <img className="article-list-img" src={article.article_img_url}/>
                                         <p className="article-list-title">{article.title}</p>
                                         <p>Posted on {new Date(article.created_at).toLocaleDateString()}</p>
