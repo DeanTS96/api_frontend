@@ -50,7 +50,7 @@ function Comments({articleId}) {
             <>
                 <PostComment articleId={articleId} setIsCommentPosted={setIsCommentPosted}/>
                 {loadingComments ? 'Loading...' : 
-                <ul>
+                <ul className="content">
                 {comments.map(comment => {
                     return (
                         <li key={`${comment.comment_id}`}>

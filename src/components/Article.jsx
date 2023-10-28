@@ -44,7 +44,7 @@ function Article() {
         )
     } else {
         return (
-            <>
+            <div>
                 <p>{loadingArticles ? 'Loading...': ''}</p>
                 <div>
                     <h2>{article.title}</h2>
@@ -59,7 +59,7 @@ function Article() {
                     {user === article.author ? <DeleteArticle articleId={article.article_id}/> : ''}
                 </div>
                 <Comments articleId={articleId}/>
-            </>
+            </div>
         )
     }
 }

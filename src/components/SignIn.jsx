@@ -40,9 +40,9 @@ function SignIn() {
                 <div className="content">
                     <form className="content-item" onSubmit={(e)=>{handleSubmit(e)}}>
                         <label className="form-label" htmlFor="username">Username </label>
-                        <input className="form-item" id="username" name="username" value={username} onChange={(e)=>{setUsername(e.target.value)}}/>
+                        <input className="form-item" id="username" name="username" value={username} onChange={(e)=>{setUsername(e.target.value)}} required/>
                         <label className="form-label" htmlFor="password">Password </label>
-                        <input className="form-item" id="password" name="password" value={password} onChange={(e)=>{setPassword(e.target.value)}}/>
+                        <input className="form-item" id="password" name="password" value={password} onChange={(e)=>{setPassword(e.target.value)}} required/>
                         <button className="button-submit" type="submit">Sign In</button>
                     </form>
                     <h2>{signInError.head}</h2>

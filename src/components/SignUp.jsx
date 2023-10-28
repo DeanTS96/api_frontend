@@ -15,16 +15,18 @@ function SignUp() {
     return (
         <>
             {isLoading ? 'Loading...' : ''}
-            <p>Signup</p>
-            <form>
-                <label htmlFor="username">Username: </label>
-                <input id="username" name="username" value={username} onChange={(e)=>{setUsername(e.target.value)}}/>
-                <label htmlFor="password">Password: </label>
-                <input id="password" name="password" value={password} onChange={(e)=>{setPassword(e.target.value)}}/>
-                <label htmlFor="avatar-url">Avatar: </label>
-                <input id="avatar-url" name="avatar-rul" value={avatarURL} onChange={(e)=>{setAvatarURL(e.target.value)}}/>
-                <button type="submit" onSubmit={(e)=>{handleSubmit(e)}}>Submit</button>
-            </form>
+            <p className="page-title">Create Account</p>
+            <div className="content">
+                <form className="content-item">
+                    <label className="form-label" htmlFor="username">Username </label>
+                    <input className="form-item" id="username" name="username" value={username} onChange={(e)=>{setUsername(e.target.value)}} required/>
+                    <label className="form-label" htmlFor="password">Password </label> 
+                    <input className="form-item" id="password" name="password" value={password} onChange={(e)=>{setPassword(e.target.value)}} required/>
+                    <label className="form-label" htmlFor="avatar-url">Avatar url </label>
+                    <input className="form-item" id="avatar-url" name="avatar-rul" value={avatarURL} onChange={(e)=>{setAvatarURL(e.target.value)}}/>
+                    <button className="button-submit" type="submit" onSubmit={(e)=>{handleSubmit(e)}}>Submit</button>
+                </form>
+            </div>
         </>
     )
 }

@@ -244,6 +244,71 @@ h1 {
   font-size: 1.2em;
 }
 
+.page-title{
+  font-size: 1.5em;
+  font-weight: 900;
+}
+
+.post-comment-form{
+  padding: 20px;
+  margin-top: 60px
+}
+
+.post-comment-main-container{
+  display: flex;
+  margin-top: 20px;
+}
+
+.comment-img-container{
+  border: 2px solid rgb(100, 4, 100);
+  /*margin: 60px auto;
+  */
+  background-color: white;
+  border-radius: 50%;
+  height: 16vw;
+  width: 16vw;
+  max-width: 100px;
+  max-height: 100px;
+  display: flex;
+  align-items: center;
+}
+
+.comment-img{
+  width: 7.5vw;
+  height: auto;
+  max-width: 45px;
+  margin: 0 auto;
+}
+
+.inline-div{
+  display: inline-block;
+}
+
+.post-comment-label{
+  display: block;
+}
+
+.post-comment-body{
+  font-size: 0.8em;
+  margin-left: 20px;
+  height: 10vw;
+  max-height: 74px;
+  flex: 1;
+  border-radius: 30px;
+  padding: 15px;
+}
+
+.button-post-comment-submit{
+  font-size: 1em;
+  background-color: rgb(100, 4, 100);
+  color: white;
+  height: 35px;
+  width: 90px;
+  border-radius: 30px;
+  display: block;
+  margin: 20px auto;
+}
+
 @media only screen and (min-width: 560px) {
   .profile-picture{
     top: 40px
