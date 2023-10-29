@@ -23,11 +23,11 @@ function DeleteArticle({articleId}) {
         })
     }
         return (
-            <>  
-                {deletingArticle ? 'Deleting article...' : <button onClick={(e)=>{deleteArticle(e)}}>Delete</button>}
+            <div className="delete-article-container">  
+                {deletingArticle ? 'Deleting article...' : <button className="button-delete-article" onClick={(e)=>{deleteArticle(e)}}>Delete</button>}
                 <h2>{deleteArticleError.head}</h2>
                 <p>{deleteArticleError.body}</p>
-            </>
+            </div>
         )
 }
 

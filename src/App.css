@@ -305,7 +305,7 @@ h1 {
   width: 90px;
   border-radius: 30px;
   display: block;
-  margin: 20px auto;
+  margin: 20px auto 0px;
 }
 
 .comment-foot{
@@ -321,6 +321,7 @@ h1 {
 .comment-votes{
   display: inline;
   margin: 5px;
+  font-size: 1.6em;
 }
 
 .comment-body{
@@ -329,6 +330,47 @@ h1 {
   flex: 1;
   border-radius: 30px;
 }
+
+.article{
+  padding: 20px 20px;
+  margin: 20px;
+  border-radius: 20px;
+  border: 2px solid rgb(100, 4, 100);
+}
+
+.article-posted-date{
+  margin-top: 20px;
+}
+
+.comment-count{
+  text-align: left;
+  margin-left: 20px;
+}
+
+.article-vote-container{
+  margin-top: 10px;
+}
+
+.delete-article-container{
+  width: 100%;
+  text-align: right;
+}
+
+.comment-vote-button{
+  background: none;
+  border: none;
+  cursor:pointer;
+}
+
+.vote-icon{
+  height: 25px;
+  fill: rgb(100, 4, 100);
+  pointer-events: none;
+  }
+
+  .vote-container{
+    display: inline-block;
+  }
 
 @media only screen and (min-width: 560px) {
   .profile-picture{
