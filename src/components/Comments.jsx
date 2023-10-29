@@ -53,7 +53,7 @@ function Comments({articleId}) {
                 <ul className="content">
                 {comments.map(comment => {
                     return (
-                        <li key={`${comment.comment_id}`}>
+                        <li className="content-item post-comment-main-container" key={`${comment.comment_id}`}>
                             <Comment comment={comment} setCommentDeleted={setCommentDeleted} setCommentUpdated={setCommentUpdated} />
                         </li>
                     )

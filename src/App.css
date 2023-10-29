@@ -255,14 +255,13 @@ h1 {
 }
 
 .post-comment-main-container{
+  text-align: left;
   display: flex;
   margin-top: 20px;
 }
 
 .comment-img-container{
   border: 2px solid rgb(100, 4, 100);
-  /*margin: 60px auto;
-  */
   background-color: white;
   border-radius: 50%;
   height: 16vw;
@@ -307,6 +306,28 @@ h1 {
   border-radius: 30px;
   display: block;
   margin: 20px auto;
+}
+
+.comment-foot{
+  float: right;
+  margin-top: 10px;
+}
+
+.button-delete{
+  display: inline-block;
+  margin-right: 15px;
+}
+
+.comment-votes{
+  display: inline;
+  margin: 5px;
+}
+
+.comment-body{
+  font-size: 0.8em;
+  margin-left: 20px;
+  flex: 1;
+  border-radius: 30px;
 }
 
 @media only screen and (min-width: 560px) {

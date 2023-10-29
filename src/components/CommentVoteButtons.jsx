@@ -8,10 +8,10 @@ function CommentVoteButtons({commentId, voter, votes}) {
     const [downVoted, setDownVoted] = useState(false);
     return (
         <>
-            <button id="upVote" onClick={(e) => {handleVote(e, upVoted, setUpVoted, downVoted, setDownVoted, commentId, voter, setCommentVotes, setCommentVoteError)}}>^</button>
-            <button id="downVote" onClick={(e) => {handleVote(e, upVoted, setUpVoted, downVoted, setDownVoted, commentId, voter, setCommentVotes, setCommentVoteError)}}>v</button>
+            <button className="comment-vote-button" id="upVote" onClick={(e) => {handleVote(e, upVoted, setUpVoted, downVoted, setDownVoted, commentId, voter, setCommentVotes, setCommentVoteError)}}>^</button>
+            <p className="comment-votes">{commentVotes}</p>
+            <button className="comment-vote-button" id="downVote" onClick={(e) => {handleVote(e, upVoted, setUpVoted, downVoted, setDownVoted, commentId, voter, setCommentVotes, setCommentVoteError)}}>v</button>
             <p>{commentVoteError}</p>
-            <p>{commentVotes}</p>
         </>
     )
 }
