@@ -42,17 +42,17 @@ function Articles({currentURL}) {
             <>
                 <p>{isLoading ? 'Loading...': ''}</p>
                     <Sort sortBy={sortBy} setSortBy={setSortBy} order={order} setOrder={setOrder} />
-                <div className="content">
+                <div className="border-2px bg-white margin-20 content">
                     <ol>
                         {articles.map(article => {
                             console.log(article);
                             return (
                                 <Link key={`${article.article_id} ${article.title}`} to={`/articles/${article.article_id}`}>
-                                    <li className="content-item" article_id={article.article_id}>
-                                        <img className="article-list-img" src={article.article_img_url}/>
-                                        <p className="article-list-title">{article.title}</p>
+                                    <li className="dis-inblk border-2px bg-lightblue rounded padding-20 content-item" article_id={article.article_id}>
+                                        <img className="rounded width-100 article-list-img" src={article.article_img_url}/>
+                                        <p className="bold">{article.title}</p>
                                         <p>Posted on {new Date(article.created_at).toLocaleDateString()}</p>
-                                        <p className="article-list-author">By {article.author}</p>
+                                        <p>By {article.author}</p>
                                     </li>
                                 </Link>
                             )

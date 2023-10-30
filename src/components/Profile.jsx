@@ -16,12 +16,12 @@ function Profile() {
     } else {
         return (
             <>
-                <div className="profile-img-container">
-                    <img className="profile-img" src={user.user.avatar_url}/>
+                <div className="bg-white padding-20 profile-img-container border-2px">
+                    <img className="center padding-20 profile-img" src={user.user.avatar_url}/>
                 </div>
-                <p className="profile-text">{user.user.name}</p>
-                <p className="profile-text">{user.user.username}</p>
-                <button className="button-submit" onClick={()=>{handleSignOut()}}>Sign out</button>
+                <p className="margin-20">{user.user.name}</p>
+                <p className="margin-20">{user.user.username}</p>
+                <button className="dis-blk button-submit rounded size-1em btn" onClick={()=>{handleSignOut()}}>Sign out</button>
             </>
         )
     }

@@ -33,17 +33,17 @@ function PostComment({articleId, setIsCommentPosted}) {
         return (
             <>
                 {isPostingComment ? 'Loading...' : 
-                <form className="post-comment-form" onSubmit={handleSubmit}>
-                    <label className="post-comment-label" htmlFor="add-comment">Add comment</label>
-                    <div className="post-comment-main-container" >
-                        <div className="inline-div">
-                            <div className="comment-img-container">
-                                <img className="comment-img" src={user.avatar_url}/>
+                <form className="padding-20 post-comment-form" onSubmit={handleSubmit}>
+                    <label className="dis-blk" htmlFor="add-comment">Add comment</label>
+                    <div className="post-comment-main-container align-l" >
+                        <div className="dis-inblk">
+                            <div className="bg-white comment-img-container border-2px">
+                                <img className="center comment-img" src={user.avatar_url}/>
                             </div>
                         </div>
-                        <textarea className="post-comment-body" id="add-comment" value={commentInput} onChange={(e) => {setCommentInput(e.target.value)}} name="add-comment" required></textarea>
+                        <textarea className="size-1em rounded post-comment-body" id="add-comment" value={commentInput} onChange={(e) => {setCommentInput(e.target.value)}} name="add-comment" required></textarea>
                     </div>
-                    <button className="button-post-comment-submit" type="submit" placeholder="add comment">submit</button>
+                    <button className="button-post-comment-submit dis-blk rounded size-1em btn clickable" type="submit" placeholder="add comment">submit</button>
                 </form>
                 }
                 <h2>{postCommentError.head}</h2>

@@ -52,10 +52,10 @@ function Comments({articleId, commentCount}) {
                 {loadingComments ? 'Loading...' : 
                 <>
                     <p className="comment-count">{commentCount} comments</p>
-                    <ul className="content">
+                    <ul className="border-2px bg-white margin-20 content">
                     {comments.map(comment => {
                     return (
-                        <li className="content-item post-comment-main-container" key={`${comment.comment_id}`}>
+                        <li className="dis-inblk border-2px rounded padding-20 content-item bg-lightblue post-comment-main-container align-l" key={`${comment.comment_id}`}>
                             <Comment comment={comment} setCommentDeleted={setCommentDeleted} setCommentUpdated={setCommentUpdated} />
                         </li>
                         )

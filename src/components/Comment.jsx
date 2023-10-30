@@ -35,15 +35,15 @@ function Comment({comment, setCommentDeleted, setCommentUpdated}) {
     } else {
         return (
             <>
-                <div className="inline-div">
-                    <div className="comment-img-container">
-                        <img className="comment-img" src={userImage} alt="user profile picture"/>
+                <div className="dis-inblk">
+                    <div className="bg-white comment-img-container border-2px">
+                        <img className="center comment-img" src={userImage} alt="user profile picture"/>
                     </div>
                 </div>
-                <div className="comment-body">
-                    <p className="comment-author">{comment.author}</p>
-                    <p className="comment-date-posted">{new Date(comment.created_at).toLocaleDateString()}</p>
-                    <p>{comment.body}</p>
+                <div className="rounded comment-body">
+                    <p className="dis-in comment-author">{comment.author}</p>
+                    <p className="dis-in size-08em">{new Date(comment.created_at).toLocaleDateString()}</p>
+                    <p className="comment-content">{comment.body}</p>
                     <div className="comment-foot">
                         {user === comment.author ? <DeleteComment commentId={comment.comment_id} setCommentDeleted={setCommentDeleted} /> : ''}
                         <CommentVoteButtons commentId={comment.comment_id} votes={comment.votes} voter='comment'/>

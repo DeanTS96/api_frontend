@@ -21,7 +21,7 @@ function App() {
   return (
     <>
     <UserContext.Provider value={{user, setUser}}>
-      <div className="header-container">
+      <div className="rounded border-2px margin-20 bg-white">
         <Header />
         <Nav setCurrentURL={setCurrentURL} />
       </div>

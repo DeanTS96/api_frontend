@@ -46,13 +46,13 @@ function Article() {
         return (
             <div>
                 <p>{loadingArticles ? 'Loading...': ''}</p>
-                <div className="article" >
+                <div className="padding-20 margin-20 rounded border-2px" >
                     <h2>{article.title}</h2>
                     <p className="article-topic" >{article.topic}</p>
-                    <img className="article-list-img" src={article.article_img_url} alt="articles image"></img>
+                    <img className="rounded width-100 article-list-img" src={article.article_img_url} alt="articles image"></img>
                     <p>{article.body}</p>
                     <p className="article-posted-date">Posted on {new Date(article.created_at).toLocaleDateString()}</p>
-                    <p className="article-list-author">By {article.author}</p>
+                    <p className="size-08em">By {article.author}</p>
                     <ArticleVoteButtons articleVotes={articleVotes} articleId={article.article_id} voter='article' setArticleVotes={setArticleVotes} votes={article.votes} />
                     {user === article.author ? <DeleteArticle articleId={article.article_id}/> : ''}
                 </div>

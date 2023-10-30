@@ -7,7 +7,7 @@ const user = useContext(UserContext).user
 console.log(user.avatar_url)
     return (
         <>
-            <h1>NC News</h1>
+            <h1 className="dis-inblk">NC News</h1>
             <Link to={user.username ? 'profile' : 'sign-in'}>
                 { user.avatar_url ? <img className="profile-picture" src={user.avatar_url}/> :
                 <svg className="profile-picture" xmlns="http://www.w3.org/2000/svg" height="1wem" viewBox="0 0 512 512">

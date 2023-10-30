@@ -29,13 +29,13 @@ function Topics() {
     return (
         <>
             <p>{isLoading ? 'Loading...': ''}</p>
-            <ul className="content">
+            <ul className="border-2px bg-white margin-20 content">
                 {topics.map(topic => {
                 return (
                 <Link key={topic.slug} to={`${topic.slug}`} >
-                    <li className="topic-item">
-                        <div className="topic-item-text-container">
-                            <p className="topic-item-text" >{topic.slug}</p>
+                    <li className="dis-inblk bg-lightblue rounded padding-20 topic-item border-2px">
+                        <div className="size-15em width-100 padding-20 topic-item-text-container">
+                            <p className="size-15em bold padding-20 topic-item-text" >{topic.slug}</p>
                         </div>
                     </li>
                 </Link>

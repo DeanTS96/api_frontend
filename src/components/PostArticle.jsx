@@ -38,18 +38,18 @@ function PostArticle() {
         })
     }
     return (
-        <div className="content">
+        <div className="border-2px bg-white margin-20 content">
             {isPostingArticle ? 'Loading...' : 
-            <form className="content-item" onSubmit={postArticle}>
-                <label className="form-label" htmlFor="title">Title</label>
-                <input className="form-item" id="title" name="title" value={titleInput} onChange={(e) => {setTitleInput(e.target.value)}} required/>
-                <label className="form-label" htmlFor="topic">Topic</label>
-                <input className="form-item" id="topic" name="topic" value={topicInput} onChange={(e) => {setTopicInput(e.target.value)}} required/>
-                <label className="form-label" htmlFor="body">Article</label>
-                <textarea className="form-item post-article-body" id="body" name="body" value={bodyInput} onChange={(e) => {setBodyInput(e.target.value)}} autosize required/>
-                <label className="form-label" htmlFor="img_url">Image url</label>
-                <input className="form-item" id="img_url" name="img_url" value={imgURLInput} onChange={(e) => {setImgURLInput(e.target.value)}}/>
-                <button className="button-submit" type="submit">Submit</button>
+            <form className="border-2px rounded padding-20 content-item bg-lightblue" onSubmit={postArticle}>
+                <label className="dis-blk" htmlFor="title">Title</label>
+                <input className="form-item rounded border-2px" id="title" name="title" value={titleInput} onChange={(e) => {setTitleInput(e.target.value)}} required/>
+                <label className="dis-blk" htmlFor="topic">Topic</label>
+                <input className="form-item rounded border-2px" id="topic" name="topic" value={topicInput} onChange={(e) => {setTopicInput(e.target.value)}} required/>
+                <label className="dis-blk" htmlFor="body">Article</label>
+                <textarea className="form-item rounded border-2px post-article-body" id="body" name="body" value={bodyInput} onChange={(e) => {setBodyInput(e.target.value)}} autosize required/>
+                <label className="dis-blk" htmlFor="img_url">Image url</label>
+                <input className="form-item rounded border-2px" id="img_url" name="img_url" value={imgURLInput} onChange={(e) => {setImgURLInput(e.target.value)}}/>
+                <button className="dis-blk button-submit" type="submit">Submit</button>
             </form>
             }
             <h2>{postArticleError.head}</h2>

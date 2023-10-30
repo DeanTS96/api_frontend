@@ -23,8 +23,8 @@ function DeleteArticle({articleId}) {
         })
     }
         return (
-            <div className="delete-article-container">  
-                {deletingArticle ? 'Deleting article...' : <button className="button-delete-article" onClick={(e)=>{deleteArticle(e)}}>Delete</button>}
+            <div className="width-100 align-r">  
+                {deletingArticle ? 'Deleting article...' : <button className="btn-none btn-text clickable" onClick={(e)=>{deleteArticle(e)}}>Delete</button>}
                 <h2>{deleteArticleError.head}</h2>
                 <p>{deleteArticleError.body}</p>
             </div>

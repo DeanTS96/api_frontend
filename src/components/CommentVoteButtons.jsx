@@ -7,8 +7,8 @@ function CommentVoteButtons({commentId, voter, votes}) {
     const [upVoted, setUpVoted] = useState(false);
     const [downVoted, setDownVoted] = useState(false);
     return (
-        <div className="vote-container">
-            <button className="comment-vote-button" id="upVote" onClick={(e) => {handleVote(e, upVoted, setUpVoted, downVoted, setDownVoted, commentId, voter, setCommentVotes, setCommentVoteError)}}>
+        <div className="dis-inblk">
+            <button className="btn-none clickable" id="upVote" onClick={(e) => {handleVote(e, upVoted, setUpVoted, downVoted, setDownVoted, commentId, voter, setCommentVotes, setCommentVoteError)}}>
                 {!upVoted ? <svg className="vote-icon" xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 512 512">
                     <path d="M323.8 34.8c-38.2-10.9-78.1 11.2-89 49.4l-5.7 20c-3.7 13-10.4 25-19.5 35l-51.3 56.4c-8.9 9.8-8.2 25 1.6 
                     33.9s25 8.2 33.9-1.6l51.3-56.4c14.1-15.5 24.4-34 30.1-54.1l5.7-20c3.6-12.7 16.9-20.1 29.7-16.5s20.1 16.9 16.5 29.7l-5.7 
@@ -26,8 +26,8 @@ function CommentVoteButtons({commentId, voter, votes}) {
                     51.2-84.2l2.3-11.4c5.2-26 30.5-42.9 56.5-37.7zM32 192H96c17.7 0 32 14.3 32 32V448c0 17.7-14.3 32-32 32H32c-17.7 0-32-14.3-32-32V224c0-17.7 14.3-32 32-32z"/>
                 </svg>}
             </button>
-            <p className="comment-votes">{commentVotes}</p>
-            <button className="comment-vote-button" id="downVote" onClick={(e) => {handleVote(e, upVoted, setUpVoted, downVoted, setDownVoted, commentId, voter, setCommentVotes, setCommentVoteError)}}>
+            <p className="size-15em comment-votes dis-in">{commentVotes}</p>
+            <button className="btn-none clickable" id="downVote" onClick={(e) => {handleVote(e, upVoted, setUpVoted, downVoted, setDownVoted, commentId, voter, setCommentVotes, setCommentVoteError)}}>
                 {!downVoted ? <svg className="vote-icon" xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 512 512">
                     <path d="M323.8 477.2c-38.2 10.9-78.1-11.2-89-49.4l-5.7-20c-3.7-13-10.4-25-19.5-35l-51.3-56.4c-8.9-9.8-8.2-25 
                     1.6-33.9s25-8.2 33.9 1.6l51.3 56.4c14.1 15.5 24.4 34 30.1 54.1l5.7 20c3.6 12.7 16.9 20.1 29.7 16.5s20.1-16.9 
