@@ -44,22 +44,20 @@ function Article() {
         )
     } else {
         return (
-            <>
+            <div>
                 <p>{loadingArticles ? 'Loading...': ''}</p>
-                <div>
+                <div className="article" >
                     <h2>{article.title}</h2>
-                    <p>{article.topic}</p>
-                    <img src={article.article_img_url} alt="articles image"></img>
+                    <p className="article-topic" >{article.topic}</p>
+                    <img className="article-list-img" src={article.article_img_url} alt="articles image"></img>
                     <p>{article.body}</p>
-                    <p>{article.author}</p>
-                    <p>{new Date(article.created_at).toLocaleDateString()}</p>
-                    <p>{article.comment_count} comments</p>
-                    <ArticleVoteButtons articleId={article.article_id} voter='article' setArticleVotes={setArticleVotes} votes={article.votes} />
-                    <p>{articleVotes}</p>
+                    <p className="article-posted-date">Posted on {new Date(article.created_at).toLocaleDateString()}</p>
+                    <p className="article-list-author">By {article.author}</p>
+                    <ArticleVoteButtons articleVotes={articleVotes} articleId={article.article_id} voter='article' setArticleVotes={setArticleVotes} votes={article.votes} />
                     {user === article.author ? <DeleteArticle articleId={article.article_id}/> : ''}
                 </div>
-                <Comments articleId={articleId}/>
-            </>
+                <Comments commentCount={article.comment_count} articleId={articleId}/>
+            </div>
         )
     }
 }

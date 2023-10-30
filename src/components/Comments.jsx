@@ -4,7 +4,7 @@ import Pagination from './Pagination';
 import PostComment from './PostComment';
 import {getComments} from '../../api';
 
-function Comments({articleId}) {
+function Comments({articleId, commentCount}) {
     const [comments, setComments] = useState([]);
     const [loadingComments, setLoadingComments] = useState(true);
     const [page, setPage] = useState(1);
@@ -50,15 +50,18 @@ function Comments({articleId}) {
             <>
                 <PostComment articleId={articleId} setIsCommentPosted={setIsCommentPosted}/>
                 {loadingComments ? 'Loading...' : 
-                <ul>
-                {comments.map(comment => {
+                <>
+                    <p className="comment-count">{commentCount} comments</p>
+                    <ul className="content">
+                    {comments.map(comment => {
                     return (
-                        <li key={`${comment.comment_id}`}>
+                        <li className="content-item post-comment-main-container" key={`${comment.comment_id}`}>
                             <Comment comment={comment} setCommentDeleted={setCommentDeleted} setCommentUpdated={setCommentUpdated} />
                         </li>
-                    )
-                })}
-                </ul>
+                        )
+                    })}
+                    </ul>
+                </>
                 }
                 <Pagination perPage="Comments" limit={limit} setLimit={setLimit} page={page} setPage={setPage} itemsLength={comments.length}/>
             </>

@@ -33,11 +33,17 @@ function PostComment({articleId, setIsCommentPosted}) {
         return (
             <>
                 {isPostingComment ? 'Loading...' : 
-                <form onSubmit={handleSubmit}>
-                    <img src={user.avatar_url}/>
-                    <label htmlFor="add-comment">Add comment</label>
-                    <input id="add-comment" value={commentInput} onChange={(e) => {setCommentInput(e.target.value)}} name="add-comment"></input>
-                    <button type="submit" placeholder="add comment">submit</button>
+                <form className="post-comment-form" onSubmit={handleSubmit}>
+                    <label className="post-comment-label" htmlFor="add-comment">Add comment</label>
+                    <div className="post-comment-main-container" >
+                        <div className="inline-div">
+                            <div className="comment-img-container">
+                                <img className="comment-img" src={user.avatar_url}/>
+                            </div>
+                        </div>
+                        <textarea className="post-comment-body" id="add-comment" value={commentInput} onChange={(e) => {setCommentInput(e.target.value)}} name="add-comment" required></textarea>
+                    </div>
+                    <button className="button-post-comment-submit" type="submit" placeholder="add comment">submit</button>
                 </form>
                 }
                 <h2>{postCommentError.head}</h2>

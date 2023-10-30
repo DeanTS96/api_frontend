@@ -26,11 +26,11 @@ function DeleteComment({commentId, setCommentDeleted}) {
         })
     }
         return (
-            <>  
-                {deletingComment ? 'Deleting comment...' : <button onClick={(e)=>{deleteComment(e)}}>Delete</button>}
+            <div className="button-delete">  
+                {deletingComment ? 'Deleting comment...' : <button className="button-delete-article" onClick={(e)=>{deleteComment(e)}}>Delete</button>}
                 <h2>{deleteCommentError.head}</h2>
                 <p>{deleteCommentError.body}</p>
-            </>
+            </div>
         )
 }
 
