@@ -325,7 +325,7 @@ h1 {
 }
 
 .comment-body{
-  font-size: 0.8em;
+  font-size: 1em;
   margin-left: 20px;
   flex: 1;
   border-radius: 30px;
@@ -372,9 +372,46 @@ h1 {
     display: inline-block;
   }
 
+  .comment-author{
+    margin-right: 10px;
+    font-size: 1.2em;
+    display: inline;
+  }
+
+  .comment-date-posted{
+    display: inline;
+    font-size: 0.8em;
+  }
+
+  .article-topic{
+    margin-bottom: 10px;
+  }
+
+  .button-delete-article{
+    background: none;
+    border: none;
+    font-size: 0.8em;
+    cursor:pointer;
+  }
+
+  .button-delete-article:hover{
+    border-bottom: solid 1px rgb(100, 4, 100);
+  }
+
 @media only screen and (min-width: 560px) {
   .profile-picture{
     top: 40px
+  }
+}
+
+@media only screen and (max-width: 415px) {
+  .comment-author{
+    display: block;
+  }
+
+  .comment-date-posted{
+    display: block;
+    margin-bottom: 10px;
   }
 }
 

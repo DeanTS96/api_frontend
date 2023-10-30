@@ -48,7 +48,7 @@ function Article() {
                 <p>{loadingArticles ? 'Loading...': ''}</p>
                 <div className="article" >
                     <h2>{article.title}</h2>
-                    <p>{article.topic}</p>
+                    <p className="article-topic" >{article.topic}</p>
                     <img className="article-list-img" src={article.article_img_url} alt="articles image"></img>
                     <p>{article.body}</p>
                     <p className="article-posted-date">Posted on {new Date(article.created_at).toLocaleDateString()}</p>

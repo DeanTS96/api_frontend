@@ -41,8 +41,8 @@ function Comment({comment, setCommentDeleted, setCommentUpdated}) {
                     </div>
                 </div>
                 <div className="comment-body">
-                    <p>{comment.author}</p>
-                    <p>{new Date(comment.created_at).toLocaleDateString()}</p>
+                    <p className="comment-author">{comment.author}</p>
+                    <p className="comment-date-posted">{new Date(comment.created_at).toLocaleDateString()}</p>
                     <p>{comment.body}</p>
                     <div className="comment-foot">
                         {user === comment.author ? <DeleteComment commentId={comment.comment_id} setCommentDeleted={setCommentDeleted} /> : ''}
