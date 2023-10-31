@@ -35,22 +35,21 @@ function SignIn() {
 
     }
         return (
-            <>
+            <div className="padding-20">
                 <p>{isLoading ? 'Loading...' : ''}</p>
-                <div className="border-2px margin-20 content">
-                    <form className="border-2px rounded padding-20 content-item bg-lightblue" onSubmit={(e)=>{handleSubmit(e)}}>
+                    <form className="border-2px rounded padding-20 content-item bg-lightblue width-mx-600 account" onSubmit={(e)=>{handleSubmit(e)}}>
                         <label className="dis-blk" htmlFor="username">Username </label>
                         <input className="form-item rounded border-2px" id="username" name="username" value={username} onChange={(e)=>{setUsername(e.target.value)}} required/>
                         <label className="dis-blk" htmlFor="password">Password </label>
                         <input className="form-item rounded border-2px" id="password" name="password" value={password} onChange={(e)=>{setPassword(e.target.value)}} required/>
-                        <button className="dis-blk button-submit rounded size-1em btn" type="submit">Sign In</button>
+                        <button className="dis-blk button-submit rounded size-10em btn" type="submit">Sign In</button>
                     </form>
                     <h2>{signInError.head}</h2>
                     <p>{signInError.body}</p>
-                </div>
+        
                 <p>Not with us?</p>
-                <button className="dis-blk button-sign-up rounded size-1em btn" onClick={(e)=>{navigate('/sign-up')}}>Create Account</button>
-            </>
+                <button className="dis-blk button-sign-up rounded size-10em btn" onClick={(e)=>{navigate('/sign-up')}}>Create Account</button>
+            </div>
         )
 }
 

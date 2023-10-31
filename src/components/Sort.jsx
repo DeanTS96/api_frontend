@@ -5,7 +5,7 @@ function Sort({sortBy, setSortBy, order, setOrder, isOrderUnchanged, setIsOrderU
             }
                 {//<label className="articles-sort-label" htmlFor="sort-by">Sort by </label>
 }
-                <select className="center rounded articles-sort-select" id="sort-by" name="sort-by" value={sortBy} onChange={(e) => {
+                <select className="size-08em center rounded clickable articles-sort-select" id="sort-by" name="sort-by" value={sortBy} onChange={(e) => {
                     setIsSortByUnchanged(false);
                     setSortBy(e.target.value)}}>
                     {isSortByUnchanged ? <option value={sortBy}>Sort by</option> : ''}
@@ -18,7 +18,7 @@ function Sort({sortBy, setSortBy, order, setOrder, isOrderUnchanged, setIsOrderU
 }
                 {//<label className="articles-sort-label" htmlFor="order">Order</label>
 }
-                <select className="center rounded articles-sort-select" id="order" name="order" value={order} onChange={(e) => {
+                <select className="size-08em center rounded clickable articles-sort-select" id="order" name="order" value={order} onChange={(e) => {
                     setIsOrderUnchanged(false);
                     setOrder(e.target.value)}}>
                     {isOrderUnchanged ? <option value={order}>Order</option> : ''}

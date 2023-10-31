@@ -21,7 +21,7 @@ function Profile() {
                 </div>
                 <p className="margin-20">{user.user.name}</p>
                 <p className="margin-20">{user.user.username}</p>
-                <button className="dis-blk button-submit rounded size-1em btn" onClick={()=>{handleSignOut()}}>Sign out</button>
+                <button className="dis-blk button-submit rounded size-10em btn" onClick={()=>{handleSignOut()}}>Sign out</button>
             </>
         )
     }

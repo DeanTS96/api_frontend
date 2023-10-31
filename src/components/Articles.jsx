@@ -52,11 +52,11 @@ function Articles({currentURL}) {
                             console.log(article);
                             return (
                                 <Link key={`${article.article_id} ${article.title}`} to={`/articles/${article.article_id}`}>
-                                    <li className="dis-inblk border-2px bg-lightblue rounded padding-20 content-item" article_id={article.article_id}>
+                                    <li className="dis-inblk border-2px bg-lightblue rounded padding-20 content-item width-mx-600" article_id={article.article_id}>
                                         <img className="rounded width-100 article-list-img" src={article.article_img_url}/>
                                         <p className="bold">{article.title}</p>
-                                        <p>Posted on {new Date(article.created_at).toLocaleDateString()}</p>
-                                        <p>By {article.author}</p>
+                                        <p class="articles-posted-date">Posted on {new Date(article.created_at).toLocaleDateString()}</p>
+                                        <p class="size-08em">By {article.author}</p>
                                     </li>
                                 </Link>
                             )

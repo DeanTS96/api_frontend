@@ -44,9 +44,9 @@ function Article() {
         )
     } else {
         return (
-            <div>
+            <div className="center width-mx-1300">
                 <p>{loadingArticles ? 'Loading...': ''}</p>
-                <div className="padding-20 margin-20 rounded border-2px" >
+                <div className="bg-lightblue padding-20 margin-20 rounded border-2px" >
                     <h2>{article.title}</h2>
                     <p className="article-topic" >{article.topic}</p>
                     <img className="rounded width-100 article-list-img" src={article.article_img_url} alt="articles image"></img>

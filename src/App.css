@@ -51,8 +51,8 @@ li{
   height: auto;
   width: 12%;
   max-width: 50px;
-  right: 10%;
-  top: 25px;
+  right: 5%;
+  top: 5px;
 }
 
 .nav-item{
@@ -78,13 +78,25 @@ li{
 }
 
 .content-item{
-  margin: 20px 20px;
   box-shadow: 10px 10px 20px gray;
   color: rgb(100, 4, 100);
+  vertical-align: top;
 }
 
 .width-100{
   width: 100%;
+}
+
+.width-mx-600{
+  max-width: 600px
+}
+
+.width-mx-1300{
+  max-width: 1300px;
+}
+
+.center-text{
+  text-align: center;
 }
 
 .margin-20{
@@ -127,12 +139,8 @@ li{
   font-size: 1.5em;
 }
 
-.size-1em{
+.size-10em{
   font-size: 1em;
-}
-
-.size-098em{
-  font-size: 0.8em;
 }
 
 .size-08em{
@@ -173,6 +181,10 @@ li{
   margin-right: 15px;
 }
 
+.content-container{
+  padding: 20px;
+}
+
 .comment-content{
   margin-top: 10px;
 }
@@ -197,7 +209,7 @@ li{
   padding: 2px 20px;
   margin: 10px;
   border: 1px solid rgb(100, 4, 100);
-}
+  }
 
 .articles-sort-select-option{
   border-radius: 20px
@@ -222,7 +234,7 @@ li{
 }
 
 .post-article-body{
-  height: 200px;
+  height: 250px;
 }
 
 .form-item:focus{
@@ -231,8 +243,8 @@ li{
 
 .topic-item{
   vertical-align: top;
-  height: 125px;
-  width: 125px;
+  height: 150px;
+  width: 150px;
   margin: 30px 10px;
   box-shadow: 10px 10px 20px gray;
   color: rgb(100, 4, 100);
@@ -290,6 +302,15 @@ li{
   align-items: center;
 }
 
+.comment-head-sm{
+  display: flex;
+  align-items: end;
+}
+
+.comment-head-text-sm{
+  margin-left: 10px;
+}
+
 .comment-img{
   width: 7.5vw;
   height: auto;
@@ -314,8 +335,11 @@ li{
 }
 
 .comment-body{
-  margin-left: 20px;
   flex: 1;
+}
+
+.comment-avatar{
+  margin-right: 20px;
 }
 
 .article-posted-date{
@@ -344,11 +368,13 @@ li{
 .article-topic{
    margin-bottom: 10px;
 }
-  
-@media only screen and (min-width: 560px) {
-  .profile-picture{
-    top: 40px
-  }
+
+.articles-posted-date{
+  padding-top: 10px;
+}
+
+.account{
+  margin: 40px auto 80px;
 }
 
 @media only screen and (max-width: 415px) {
@@ -361,4 +387,18 @@ li{
     margin-bottom: 10px;
   }
 }
+
+@media only screen and (max-width: 500px) {
+  .lg{
+    display: none;
+  }
+}
+
+@media only screen and (min-width: 500px) {
+  .sm{
+    display: none;
+  }
+}
+
+
 

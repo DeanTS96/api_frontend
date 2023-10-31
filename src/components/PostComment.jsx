@@ -43,7 +43,7 @@ function PostComment({articleId, setIsCommentPosted}) {
                         </div>
                         <textarea className="size-1em rounded post-comment-body" id="add-comment" value={commentInput} onChange={(e) => {setCommentInput(e.target.value)}} name="add-comment" required></textarea>
                     </div>
-                    <button className="button-post-comment-submit dis-blk rounded size-1em btn clickable" type="submit" placeholder="add comment">submit</button>
+                    <button className="button-post-comment-submit dis-blk rounded size-10em btn clickable" type="submit" placeholder="add comment">submit</button>
                 </form>
                 }
                 <h2>{postCommentError.head}</h2>

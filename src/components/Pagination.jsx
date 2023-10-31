@@ -3,7 +3,7 @@ function Pagination({perPage, limit, setLimit, page, setPage, itemsLength}) {
         <>
             <div>
                 <label className="pagination-head" htmlFor={`${perPage}-per-page`}>{perPage} per page</label>
-                <select className="pagination-head rounded pagination-dropdown" id={`${perPage}-per-page`} name={`${perPage}-per-page`} value={limit} onChange={(e)=>{setLimit(e.target.value)}}>
+                <select className="pagination-head rounded pagination-dropdown size-10em" id={`${perPage}-per-page`} name={`${perPage}-per-page`} value={limit} onChange={(e)=>{setLimit(e.target.value)}}>
                     <option value="5">5</option>
                     <option value="10">10</option>
                     <option value="15">15</option>
