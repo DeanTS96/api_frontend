@@ -21,10 +21,8 @@ function App() {
   return (
     <>
     <UserContext.Provider value={{user, setUser}}>
-      <div className="rounded border-2px margin-20 bg-white">
         <Header />
         <Nav setCurrentURL={setCurrentURL} />
-      </div>
       <Routes>
         <Route path="/" element={<Articles currentURL={currentURL}/>}></Route>
         <Route path="/articles/:article_id" element={<Article />}></Route>

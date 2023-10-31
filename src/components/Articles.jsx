@@ -13,6 +13,8 @@ function Articles({currentURL}) {
     const [sortBy, setSortBy] = useState('created_at')
     const [order, setOrder] = useState('desc')
     const [articlesError, setArticlesError] = useState('');
+    const [isOrderUnchanged, setIsOrderUnchanged] = useState(true);
+    const [isSortByUnchanged, setIsSortByUnchanged] = useState(true);
 
     useEffect(() => {
         setIsLoading(true);
@@ -41,8 +43,10 @@ function Articles({currentURL}) {
         return (
             <>
                 <p>{isLoading ? 'Loading...': ''}</p>
-                    <Sort sortBy={sortBy} setSortBy={setSortBy} order={order} setOrder={setOrder} />
-                <div className="border-2px bg-white margin-20 content">
+                    <Sort sortBy={sortBy} setSortBy={setSortBy} order={order} setOrder={setOrder} 
+                    isOrderUnchanged={isOrderUnchanged} setIsOrderUnchanged={setIsOrderUnchanged} isSortByUnchanged={isSortByUnchanged} setIsSortByUnchanged={setIsSortByUnchanged}/>
+                {//<div className="border-2px bg-white margin-20 content">
+    }
                     <ol>
                         {articles.map(article => {
                             console.log(article);
@@ -58,7 +62,6 @@ function Articles({currentURL}) {
                             )
                         })}
                     </ol>
-                </div>
                 <Pagination perPage="Articles" limit={limit} setLimit={setLimit} page={page} setPage={setPage} itemsLength={articles.length}/>
             </>
         )

@@ -6,7 +6,7 @@
 }
 
 body {
-  background-color: lightblue;
+  background-color: white;
   font-size: 1.2em;
 }
 
@@ -78,7 +78,7 @@ li{
 }
 
 .content-item{
-  margin: 30px 10px;
+  margin: 20px 20px;
   box-shadow: 10px 10px 20px gray;
   color: rgb(100, 4, 100);
 }
@@ -194,14 +194,9 @@ li{
 }
 
 .articles-sort-select{
-  padding: 2px 20px;;
+  padding: 2px 20px;
   margin: 10px;
-  margin-left: 10px;
   border: 1px solid rgb(100, 4, 100);
-}
-
-#order{
-  margin-left: 29px;
 }
 
 .articles-sort-select-option{
